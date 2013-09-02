@@ -1,0 +1,16 @@
+Adventures in systems archaeology
+
+Synopsis:
+ps aux:
+
+redis-server conf/redis.conf
+
+Where is this running from? It's a relative dir, so only god knows.
+
+*enter linux*
+
+cd /proc/pidofproc
+cat environ
+there it is, PWD=/home/mrdude/oldgitrepo
+sure enough, /home/mrdude/oldgitrepo/conf/redis.conf exists.
+now hopefully mrdude hasn't edited the conf file since launching redis 2 years ago....
