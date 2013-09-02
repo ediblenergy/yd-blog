@@ -1,16 +1,26 @@
-Adventures in systems archaeology
-
-Synopsis:
-ps aux:
-
+<!doctype html>
+<html>
+    <head>
+        <title>Adventures in systems archaeology</title>
+    </head>
+    <body>
+        <p>Synopsis:</p>
+<pre>
+$ ps aux
 redis-server conf/redis.conf
+</pre>
 
-Where is this running from? It's a relative dir, so only god knows.
+        <p>Where is this running from? It's a relative dir, so only god knows.</p>
 
-*enter linux*
-
-cd /proc/pidofproc
-cat environ
-there it is, PWD=/home/mrdude/oldgitrepo
-sure enough, /home/mrdude/oldgitrepo/conf/redis.conf exists.
-now hopefully mrdude hasn't edited the conf file since launching redis 2 years ago....
+        <h4>*enter linux*</h4>
+<pre>
+$ cd /proc/pidofproc
+$ cat environ
+</pre>
+        <p>
+            there it is, PWD=/home/mrdude/oldgitrepo
+            sure enough, /home/mrdude/oldgitrepo/conf/redis.conf exists.
+        </p>
+        <p>Now hopefully mrdude hasn't edited the conf file since launching redis 2 years ago....<p>
+    </body>
+</html>
