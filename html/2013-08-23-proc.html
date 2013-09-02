@@ -5,10 +5,30 @@
     </head>
     <body>
         <p>Synopsis:</p>
+System $x was running low on disk space. I do what I normally do, ssh in, check disk space, and check what's running.;
 <pre>
-$ ps aux
+$ df -h 
+$ ps auxf
+</pre>
+First question, what's running?
+<pre>
 redis-server conf/redis.conf
 </pre>
+Sure enough, the low disk space is from redis's over chatty log. I can wipe the log, edit the config
+to raise the log level minimum to "warning," and restart redis, if I was confident I could restart redis.
+
+unfortunately, redis was launched with a relative path to the config, so I have no idea where the config lives.
+
+<div class="sidenote">
+    When launching daemons, *always* use the full path to file arguments.
+    It's <a href="http://en.wikipedia.org/wiki/Self-documenting">self documenting.</a>
+    So you're lazy, and don't want to type the full path? Me too!
+    <pre>
+    $ redis-server $PWD/conf/redis.conf
+    $ ps auxf
+    </pre>
+    The shell will expand $PWD before it hits the operating system, leaving a nice easy to read line in the process tree.
+</div>
 
         <p>Where is this running from? It's a relative dir, so only god knows.</p>
 
